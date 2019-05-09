@@ -20,9 +20,9 @@ function deliverFile(fileName) {
     };
 }
 
-app.get("/data.json", deliverFile("dist/data.json"));
-app.get("/meta.json", deliverFile("dist/meta.json"));
-app.get("/map/names.json", deliverFile(".map/names.json"));
+//app.get("/data.json", deliverFile("dist/data.json"));
+//app.get("/meta.json", deliverFile("dist/meta.json"));
+//app.get("/map/names.json", deliverFile(".map/names.json"));
 app.get("/*", deliverFile("index.html"));
 
 app.listen(4000);

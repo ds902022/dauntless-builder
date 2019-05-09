@@ -6,8 +6,8 @@ const md5 = require("md5");
 let stringMap = {};
 let stringCounter = {};
 
-if(fs.existsSync(`./.map/names.json`)) {
-    let data = fs.readFileSync(`./.map/names.json`);
+if(fs.existsSync(`./map/names.json`)) {
+    let data = fs.readFileSync(`./map/names.json`);
     stringMap = JSON.parse(data);
 }
 
@@ -143,7 +143,7 @@ Promise.all([
 
     const dataString = JSON.stringify(object);
 
-    fs.writeFileSync("./dist/data.json", dataString);
+    fs.writeFileSync("./data.json", dataString);
 
     console.log("Built data.json");
 
@@ -151,9 +151,9 @@ Promise.all([
 
     const mapString = JSON.stringify(stringMap);
 
-    fs.writeFileSync(`./.map/names.json`, mapString);
+    fs.writeFileSync(`./map/names.json`, mapString);
 
-    fs.writeFileSync("./dist/meta.json", JSON.stringify({
+    fs.writeFileSync("./meta.json", JSON.stringify({
         "build_time": new Date().getTime(),
         "data_hash": md5(dataString),
         "map_hash": md5(mapString)
